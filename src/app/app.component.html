@@ -1,0 +1,13 @@
+<h1>Welcome to </h1>
+<div class="pokemonPanel">
+
+	<p-card *ngFor="let pokemon of pokemonList" class="pokemon-card">
+		<ng-template pTemplate="header">
+			<img alt="Card" src="{{pokemon.picture}}" class="pok-picture" />
+		</ng-template>
+
+		<p class="m-0">
+			{{pokemon.name}}
+		</p>
+	</p-card>
+</div>
