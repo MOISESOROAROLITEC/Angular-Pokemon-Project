@@ -9,9 +9,6 @@ import { Pokemon } from './pokemon';
 export class AppComponent implements OnInit {
 	pokemonList: Pokemon[] = POKEMONS;
 	pokemonSelected: Pokemon | undefined;
-	value: string
-	value2: string
-	value3: string
 
 	ngOnInit(): void {
 	}

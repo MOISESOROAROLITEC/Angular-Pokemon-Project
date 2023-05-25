@@ -1,13 +1,21 @@
 @import url("~primeng/resources/themes/lara-light-blue/theme.css");
 @import url("~primeng/resources/primeng.min.css");
 @import url("~primeicons/primeicons.css");
+@import url("~bootstrap/dist/css/bootstrap.css");
 @import url("app/style.scss");
 
 
-.selected{
-	color: red;
-	font-weight: 600;
+.selected {
+  color: red;
+  font-weight: 600;
 }
+
 body {
-    font-family: var(--font-family);
+  font-family: var(--font-family);
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  transition: all 200ms;
 }

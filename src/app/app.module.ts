@@ -9,19 +9,19 @@ import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { CardModule } from 'primeng/card';
+import { HoverCardDirective } from './hover-card.directive';
 
 @NgModule({
 	declarations: [
-		AppComponent
+		AppComponent,
+		HoverCardDirective
 	],
 	imports: [
 		BrowserModule,
 		BrowserAnimationsModule,
 		AppRoutingModule,
-		InputTextModule,
 		FormsModule,
 		CardModule,
-		ButtonModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]
