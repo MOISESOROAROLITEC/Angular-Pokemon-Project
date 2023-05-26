@@ -1,3 +1,11 @@
+.page-title {
+  background-color: rgb(75, 221, 160);
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
 .pokemon-card {
   border-radius: 5px;
   cursor: pointer;
@@ -6,6 +14,7 @@
     display: flex;
     margin: 1rem 0;
     align-items: center;
+    min-height: 200px;
 
     &.p-component:hover {
       box-shadow: -1px -1px 14px -5px #0000009d;
@@ -31,6 +40,12 @@
         margin-bottom: 4px;
         font-size: 1.1rem;
       }
+    }
+
+    .pok-image {
+      position: relative;
+      top: -30px;
+      left: -35px;
     }
   }
 }
