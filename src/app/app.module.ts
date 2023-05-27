@@ -14,6 +14,7 @@ import { ButtonModule } from 'primeng/button';
 import { ListPokemonComponent } from './list-pokemon/list-pokemon.component';
 import { DetailPokemonComponent } from './detail-pokemon/detail-pokemon.component';
 import { EditPokemonComponent } from './edit-pokemon/edit-pokemon.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
 	declarations: [
@@ -22,7 +23,8 @@ import { EditPokemonComponent } from './edit-pokemon/edit-pokemon.component';
 		PokemonTypeColorPipe,
 		ListPokemonComponent,
 		DetailPokemonComponent,
-  EditPokemonComponent
+  EditPokemonComponent,
+  PageNotFoundComponent
 	],
 	imports: [
 		BrowserModule,

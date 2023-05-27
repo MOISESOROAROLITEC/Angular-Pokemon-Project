@@ -30,4 +30,8 @@ export class DetailPokemonComponent implements OnInit {
 			this.route.navigate([`/pokemons`], { fragment: name })
 		}
 	}
+
+	editPokemon(id: number) {
+		this.route.navigate([`/pokemon-edit/${id}`]);
+	}
 }

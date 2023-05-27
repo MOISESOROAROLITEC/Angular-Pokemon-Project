@@ -15,6 +15,6 @@ export class ListPokemonComponent implements OnInit {
 	ngOnInit() { }
 
 	showPokemonDetail(id: number) {
-		this.route.navigate([`/pokemon/${id}`])
+		this.route.navigate([`/pokemon-details/${id}`])
 	}
 }
