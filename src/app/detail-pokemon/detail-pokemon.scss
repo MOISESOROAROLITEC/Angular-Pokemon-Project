@@ -1,0 +1,53 @@
+.line {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.line-right .chip {
+  margin-bottom: 0px;
+}
+
+.line-color {
+  background-color: #d8d8d8b7;
+}
+
+.card {
+  padding: 1.5rem 0.75rem;
+  border: solid 1px #00000075;
+}
+
+.row {
+  margin-bottom: 0;
+}
+
+.image-box {
+  display: flex;
+  justify-content: center;
+}
+
+.separator {
+  width: 66%;
+  margin-left: auto;
+}
+
+.details-infos {
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+
+.return-btn {
+  color: rgb(255, 176, 123) !important;
+}
+
+.bottom-btns {
+  margin: 1rem 0 0 0rem;
+
+  button.p-ripple.p-element.p-button-text.p-button.p-component:hover {
+    transition: all 200ms;
+    transform: scale(1.1, 1.1);
+  }
+}

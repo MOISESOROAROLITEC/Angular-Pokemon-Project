@@ -1,18 +1,3 @@
-<h1>Welcome to </h1>
-<div class="container">
-	<div class="pokemonPanel row">
-		<p-card *ngFor="let pokemon of pokemonList"
-			class="m-0 pokemon-card col-xl-3 col-12 col-xl-4 col-lg-4 col-md-4 col-sm-6 d.flex align-items-center">
-			<ng-template pTemplate="header" class="pok-image-template">
-				<img alt="Card" [src]="pokemon.picture" class="pok-image" />
-			</ng-template>
+<h1 class="app-title">Welcome to <strong>Pokemons</strong> page</h1>
 
-			<div class="m-1 pok-infos">
-				<div class="pok-name">
-					{{pokemon.name}}
-				</div>
-				<div class="pok-date"> {{pokemon.created}} </div>
-			</div>
-		</p-card>
-	</div>
-</div>
+<router-outlet></router-outlet>

@@ -1,15 +1,16 @@
 @import url("~primeng/resources/themes/lara-light-blue/theme.css");
 @import url("~primeng/resources/primeng.min.css");
 @import url("~primeicons/primeicons.css");
-@import url("~materialize-css/dist/css/materialize.css");
+@import url("~materialize-css/dist/css/materialize.min.css");
 @import url("~bootstrap/dist/css/bootstrap.css");
+
+:root {
+  --app-title-color: #4bdda0;
+}
+
+@import url("app/detail-pokemon/detail-pokemon.scss");
 @import url("app/pokemon-style.scss");
 
-
-.selected {
-  color: red;
-  font-weight: 600;
-}
 
 body {
   font-family: var(--font-family);
