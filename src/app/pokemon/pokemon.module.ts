@@ -9,6 +9,7 @@ import { PokemonTypeColorPipe } from './pokemon-type-color.pipe';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { ChipModule } from 'primeng/chip';
+import { PokemonService } from './pokemon.service';
 
 const pokemonRoutes: Routes = [
 	{ path: "pokemons", component: ListPokemonComponent },
@@ -30,6 +31,7 @@ const pokemonRoutes: Routes = [
 		ChipModule,
 		ButtonModule,
 		CardModule,
-	]
+	],
+	providers: [PokemonService]
 })
 export class PokemonModule { }

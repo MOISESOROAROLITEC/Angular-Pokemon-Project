@@ -33,7 +33,7 @@
 			</div>
 			<div class="bottom-btns">
 				<p-button label=" Retour" title="retour à la liste des pokemons" icon="pi pi-angle-left" class="return-btn"
-					styleClass="p-button-text p-button-warning" (click)="returnButton( pokemon.name )"></p-button>
+					styleClass="p-button-text p-button-warning" (click)="gotToPokemonListPage( pokemon.name )"></p-button>
 				<p-button label="Modilier" title="modifier les informations du pokemon" icon="pi pi-pencil" class="return-btn"
 					styleClass="p-button-text" (click)="editPokemon( pokemon.id )"></p-button>
 			</div>
@@ -42,6 +42,6 @@
 	<div *ngIf="!pokemon" class="card">
 		<h2 class="page-title">Ce Pokémon est introuvable</h2>
 		<p-button label="Retour" title="retour à la page d'acceuile" class="return-btn" styleClass="p-button-text"
-			(click)="returnButton()"></p-button>
+			(click)="gotToPokemonListPage()"></p-button>
 	</div>
 </div>
