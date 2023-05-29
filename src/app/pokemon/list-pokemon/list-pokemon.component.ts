@@ -7,12 +7,10 @@ import { Router } from '@angular/router';
 	selector: 'app-list-pokemon',
 	templateUrl: './list-pokemon.component.html'
 })
-export class ListPokemonComponent implements OnInit {
+export class ListPokemonComponent {
 	pokemonList: Pokemon[] = POKEMONS;
 
 	constructor(private route: Router) { }
-
-	ngOnInit() { }
 
 	showPokemonDetail(id: number) {
 		this.route.navigate([`/pokemon-details/${id}`])

@@ -40,7 +40,8 @@
 		</div>
 	</div>
 	<div *ngIf="!pokemon" class="card">
-		<h2 class="page-title">Pokemon not found</h2>
-		<p-button label="Retour" class="return-btn" styleClass="p-button-text" (click)="returnButton()"></p-button>
+		<h2 class="page-title">Ce Pokémon est introuvable</h2>
+		<p-button label="Retour" title="retour à la page d'acceuile" class="return-btn" styleClass="p-button-text"
+			(click)="returnButton()"></p-button>
 	</div>
 </div>
