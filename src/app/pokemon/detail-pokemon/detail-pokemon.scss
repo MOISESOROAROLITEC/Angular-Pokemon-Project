@@ -27,6 +27,7 @@
 .image-box {
   display: flex;
   justify-content: center;
+  animation: anim-pok-image 0.8s linear infinite alternate both;
 }
 
 .separator {

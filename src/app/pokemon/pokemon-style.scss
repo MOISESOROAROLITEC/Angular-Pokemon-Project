@@ -1,0 +1,36 @@
+@keyframes anim-pok-image {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+
+  100% {
+    transform: translateY(5px);
+  }
+}
+
+.app-title {
+  background-color: var(--app-title-color);
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 3rem;
+  text-align: center;
+
+  & .pokedex {
+    text-decoration: blink;
+    color: blue;
+
+    &:hover {
+      color: blue;
+      transform: scale(2, 2);
+      text-shadow: 3px -2px 4px #2b834c;
+    }
+
+    & strong {
+      font-weight: 600;
+    }
+  }
+}

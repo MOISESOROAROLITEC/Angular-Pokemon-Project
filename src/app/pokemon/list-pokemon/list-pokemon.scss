@@ -1,22 +1,3 @@
-@keyframes slide-top {
-  0% {
-    transform: translateY(7px);
-  }
-
-  100% {
-    transform: translateY(-7px);
-  }
-}
-
-.app-title {
-  background-color: var(--app-title-color);
-  width: 100%;
-  padding: 1rem;
-  margin-bottom: 3rem;
-  text-align: center;
-}
-
-
 .page-title {
   width: 100%;
   margin-bottom: 1rem;
@@ -26,11 +7,10 @@
 .pokemon-card {
   border-radius: 5px;
   cursor: pointer;
-  animation: 0.8s linear infinite alternate-reverse both;
 
   &:hover {
     .pok-image {
-      animation: slide-top 0.8s linear infinite alternate-reverse both;
+      animation: anim-pok-image 0.8s linear infinite alternate both;
     }
   }
 
