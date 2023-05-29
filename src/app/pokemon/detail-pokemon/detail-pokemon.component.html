@@ -32,10 +32,10 @@
 				</div>
 			</div>
 			<div class="bottom-btns">
-				<p-button label=" Retour" icon="pi pi-angle-left" class="return-btn" styleClass="p-button-text p-button-warning"
-					(click)="returnButton( pokemon.name )"></p-button>
-				<p-button label="Modilier" icon="pi pi-pencil" class="return-btn" styleClass="p-button-text"
-					(click)="editPokemon( pokemon.id )"></p-button>
+				<p-button label=" Retour" title="retour à la liste des pokemons" icon="pi pi-angle-left" class="return-btn"
+					styleClass="p-button-text p-button-warning" (click)="returnButton( pokemon.name )"></p-button>
+				<p-button label="Modilier" title="modifier les informations du pokemon" icon="pi pi-pencil" class="return-btn"
+					styleClass="p-button-text" (click)="editPokemon( pokemon.id )"></p-button>
 			</div>
 		</div>
 	</div>
