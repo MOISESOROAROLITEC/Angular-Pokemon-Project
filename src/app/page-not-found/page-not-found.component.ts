@@ -34,6 +34,7 @@ import { Router } from '@angular/router';
 		.not-found-image{
 			max-height: 50vh;
 			max-width: 90vw;
+			animation: anim-pok-image 0.8s linear infinite alternate both;
 		}
 	`]
 })
