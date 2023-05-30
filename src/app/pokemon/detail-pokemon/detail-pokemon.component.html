@@ -39,9 +39,21 @@
 			</div>
 		</div>
 	</div>
-	<div *ngIf="!pokemon" class="card">
-		<h2 class="page-title">Ce Pokémon est introuvable</h2>
-		<p-button label="Retour" title="retour à la page d'acceuile" class="return-btn" styleClass="p-button-text"
-			(click)="gotToPokemonListPage()"></p-button>
+</div>
+<div *ngIf="!pokemon">
+	<div class="page-not-found">
+		<div class="status-code">
+			<h1>
+				404
+			</h1>
+			<img class="not-found-image" src="../../assets/pokemon_images/293.png">
+		</div>
+		<div>
+			<h3>
+				Ce Pokémon est introuvable
+			</h3>
+		</div>
+		<p-button label="Retour à la liste des pokemons" icon="pi pi-angle-left" class="return-btn"
+			styleClass="p-button-text p-button-primary" (click)="gotToPokemonListPage()"></p-button>
 	</div>
 </div>
