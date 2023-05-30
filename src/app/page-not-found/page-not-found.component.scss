@@ -1,0 +1,17 @@
+.page-not-found {
+  text-align: center;
+}
+
+.status-code h1 {
+  font-size: 4rem;
+  color: red;
+  color: red;
+  font-weight: bold;
+  letter-spacing: 1.5rem;
+}
+
+.not-found-image {
+  max-height: 50vh;
+  max-width: 90vw;
+  animation: anim-pok-image 0.8s linear infinite alternate both;
+}
