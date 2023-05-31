@@ -1,12 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
+
 import { Pokemon } from './pokemon';
 import { POKEMONS } from './mock-pokemons';
 
 @Injectable()
 export class PokemonService {
-	typesList: string[];
-
-	constructor() { }
 
 	getPokemonList(): Pokemon[] {
 		return POKEMONS
@@ -17,19 +15,18 @@ export class PokemonService {
 	}
 
 	getPokemonTypesList(): string[] {
-
-		POKEMONS.map(pokemon => {
-
-			pokemon.types.map(type => {
-
-				if (!this.typesList.includes(type)) {
-					this.typesList = [...this.typesList, type]
-				};
-
-			});
-
-		});
-		return this.typesList;
+		return [
+			"Plante",
+			"Poison",
+			"Feu",
+			"Eau",
+			"Insecte",
+			"Normal",
+			"Vol",
+			"Electrik",
+			"Fée",
+			"Psy"
+		]
 	}
 
 }

@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+
 import { DetailPokemonComponent } from './detail-pokemon/detail-pokemon.component';
 import { EditPokemonComponent } from './edit-pokemon/edit-pokemon.component';
 import { ListPokemonComponent } from './list-pokemon/list-pokemon.component';
 import { HoverCardDirective } from './hover-card.directive';
 import { PokemonTypeColorPipe } from './pokemon-type-color.pipe';
+import { PokemonService } from './pokemon.service';
+
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { ChipModule } from 'primeng/chip';
-import { PokemonService } from './pokemon.service';
+import { InputTextModule } from 'primeng/inputtext';
+import { FormsModule } from '@angular/forms';
 
 const pokemonRoutes: Routes = [
 	{ path: "pokemons", component: ListPokemonComponent },
@@ -31,6 +35,8 @@ const pokemonRoutes: Routes = [
 		ChipModule,
 		ButtonModule,
 		CardModule,
+		InputTextModule,
+		FormsModule
 	],
 	providers: [PokemonService]
 })

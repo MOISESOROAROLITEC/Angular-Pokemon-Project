@@ -1,0 +1,23 @@
+.pokemon-image {
+  text-align: center;
+  animation: anim-pok-image 0.8s linear infinite alternate both;
+
+  img {
+    max-width: 70vw;
+  }
+}
+
+.page-title {
+  .pok-name {
+    font-weight: 700;
+  }
+}
+
+.card-panel.red.accent-1 {
+  font-size: 0.9rem;
+  color: white;
+  font-weight: 600;
+  padding: 1rem;
+  background-color: #cf0000d3;
+  border-radius: 10px;
+}

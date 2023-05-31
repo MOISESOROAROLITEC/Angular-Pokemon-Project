@@ -1,5 +1,6 @@
 .line {
-  height: 40px;
+  min-height: 40px;
+  padding: 0.5rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,7 +9,7 @@
 }
 
 .line-right .chip {
-  margin-bottom: 0px;
+  margin: 0.2rem;
 }
 
 .line-color {
