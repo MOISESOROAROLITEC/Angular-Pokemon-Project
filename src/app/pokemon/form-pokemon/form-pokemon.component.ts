@@ -58,11 +58,11 @@ export class FormPokemonComponent {
 	onSubmit() {
 		this.pokemonService.updatePokemonInfo(this.newPokemon)
 
-		this.router.navigate([`pokemon-details/${this.pokemon.id}`])
+		this.router.navigate([`details-pokemon/${this.pokemon.id}`])
 	}
 
 	returPokemonDetail() {
-		this.router.navigate([`pokemon-details/${this.pokemon.id}`])
+		this.router.navigate([`details-pokemon/${this.pokemon.id}`])
 	}
 
 }
