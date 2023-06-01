@@ -1,28 +1,31 @@
-<h2 class="page-title">Pokemons liste</h2>
-<div class="container" style="margin-bottom: 10vh;">
-	<div class="pokemonPanel row">
+<div class="pokemon-list">
+	<h2 class="page-title">Pokemons liste</h2>
+	<div class="container" style="margin-bottom: 10vh;">
+		<div class="pokemonPanel row">
 
-		<p-card *ngFor="let pokemon of pokemonList"
-			class="m-0 pokemon-card col-xl-3 col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12 d.flex align-items-center"
-			(click)='showPokemonDetail(pokemon.id)' title="voir les details de {{pokemon.name}}">
+			<p-card *ngFor="let pokemon of pokemonList"
+				class="m-0 pokemon-card col-xl-3 col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12 d.flex align-items-center"
+				(click)='showPokemonDetail(pokemon.id)' title="voir les details de {{pokemon.name}}">
 
-			<ng-template pTemplate="header" class="pok-image-emplate">
-				<img alt="Card" [src]="pokemon.picture" class="pok-image" />
-			</ng-template>
+				<ng-template pTemplate="header" class="pok-image-emplate">
+					<img alt="Card" [src]="pokemon.picture" class="pok-image" />
+				</ng-template>
 
-			<section class="pok-list-section" id="{{pokemon.name}}">
-				<div class="m-1 pok-infos">
-					<p class="pok-name">
-						{{pokemon.name | uppercase}}
-					</p>
-					<p class="pok-date"> {{pokemon.created|date}} </p>
-					<span *ngFor="let type of pokemon.types" class="{{type | pokemonTypeColor}}">
-						{{type}}
-					</span>
-				</div>
-			</section>
+				<section class="pok-list-section" id="{{pokemon.name}}">
+					<div class="m-1 pok-infos">
+						<p class="pok-name">
+							{{pokemon.name | uppercase}}
+						</p>
+						<p class="pok-date"> {{pokemon.created|date}} </p>
+						<span *ngFor="let type of pokemon.types" class="{{type | pokemonTypeColor}}">
+							{{type}}
+						</span>
+					</div>
+				</section>
 
-		</p-card>
+			</p-card>
 
+		</div>
 	</div>
+	<p-speedDial direction="right"></p-speedDial>
 </div>

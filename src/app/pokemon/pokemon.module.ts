@@ -10,6 +10,7 @@ import { PokemonTypeColorPipe } from './pokemon-type-color.pipe';
 import { PokemonService } from './pokemon.service';
 
 import { ButtonModule } from 'primeng/button';
+import { SpeedDialModule } from 'primeng/speeddial';
 import { CardModule } from 'primeng/card';
 import { ChipModule } from 'primeng/chip';
 import { InputTextModule } from 'primeng/inputtext';
@@ -29,7 +30,7 @@ const pokemonRoutes: Routes = [
 		ListPokemonComponent,
 		DetailPokemonComponent,
 		EditPokemonComponent,
-  FormPokemonComponent,
+		FormPokemonComponent,
 	],
 	imports: [
 		CommonModule,
@@ -37,6 +38,7 @@ const pokemonRoutes: Routes = [
 		ChipModule,
 		ButtonModule,
 		CardModule,
+		SpeedDialModule,
 		InputTextModule,
 		FormsModule
 	],

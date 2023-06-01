@@ -13,14 +13,13 @@ export class FormPokemonComponent {
 	@Input() pokemon: Pokemon;
 	types: string[];
 
-
 	constructor(
 		private pokemonService: PokemonService,
-		private activatedRoute: ActivatedRoute,
 		private router: Router
 	) { }
 
 	ngOnInit(): void {
+		this.types = this.pokemonService.getPokemonTypesList();
 	}
 
 	hasType(type: string): boolean {
