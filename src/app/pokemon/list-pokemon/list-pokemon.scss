@@ -5,10 +5,12 @@
 		text-align: center;
 	}
 
-	.p-speeddial{
+	.p-button{
 		position: fixed;
-		right: 2rem;
 		bottom: 2rem;
+		right: 2rem;
+		height: 4rem !important;
+    width: 4rem !important;
 	}
 
 	.pokemon-card {
