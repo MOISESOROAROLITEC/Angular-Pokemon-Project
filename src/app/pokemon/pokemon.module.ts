@@ -14,6 +14,7 @@ import { CardModule } from 'primeng/card';
 import { ChipModule } from 'primeng/chip';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
+import { FormPokemonComponent } from './form-pokemon/form-pokemon.component';
 
 const pokemonRoutes: Routes = [
 	{ path: "pokemons", component: ListPokemonComponent },
@@ -28,6 +29,7 @@ const pokemonRoutes: Routes = [
 		ListPokemonComponent,
 		DetailPokemonComponent,
 		EditPokemonComponent,
+  FormPokemonComponent,
 	],
 	imports: [
 		CommonModule,
