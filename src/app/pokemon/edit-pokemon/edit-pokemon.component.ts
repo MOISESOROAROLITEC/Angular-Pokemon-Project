@@ -12,18 +12,13 @@ import { POKEMONS } from '../mock-pokemons';
 })
 export class EditPokemonComponent implements OnInit {
 
-	@Input() pokemon: Pokemon | undefined;
-	types: string[];
-
+	pokemon: Pokemon | undefined;
 
 	constructor(
-		private pokemonService: PokemonService,
 		private activatedRoute: ActivatedRoute,
 	) { }
 
 	ngOnInit(): void {
-
-		this.types = this.pokemonService.getPokemonTypesList();
 		const id: string | null = this.activatedRoute.snapshot.paramMap.get("id");
 
 		if (id) {

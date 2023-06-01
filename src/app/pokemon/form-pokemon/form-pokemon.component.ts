@@ -11,40 +11,44 @@ import { PokemonService } from '../pokemon.service';
 export class FormPokemonComponent {
 
 	@Input() pokemon: Pokemon;
+	newPokemon: Pokemon
 	types: string[];
 
 	constructor(
 		private pokemonService: PokemonService,
-		private router: Router
+		private router: Router,
 	) { }
 
 	ngOnInit(): void {
 		this.types = this.pokemonService.getPokemonTypesList();
+		if (this.pokemon) {
+			this.newPokemon = { ...this.pokemon, types: [...this.pokemon.types] };
+		}
 	}
 
 	hasType(type: string): boolean {
-		return this.pokemon.types.includes(type) || false;
+		return this.newPokemon.types.includes(type) || false;
 	}
 
 	selectType($event: Event, type: string) {
 		const isChecked: boolean = ($event.target as HTMLInputElement).checked
 
 		if (isChecked) {
-			this.pokemon.types.push(type)
+			this.newPokemon.types.push(type)
 		} else {
-			const index = this.pokemon.types.indexOf(type)
-			this.pokemon.types.splice(index, 1)
+			const index = this.newPokemon.types.indexOf(type)
+			this.newPokemon.types.splice(index, 1)
 		}
 
 	}
 
 	isTypesValid(type: string): boolean {
 
-		if (this.pokemon.types.length == 1 && this.hasType(type)) {
+		if (this.newPokemon.types.length == 1 && this.hasType(type)) {
 			return false;
 		}
 
-		if (this.pokemon.types.length >= 3 && !this.hasType(type)) {
+		if (this.newPokemon.types.length >= 3 && !this.hasType(type)) {
 			return false
 		}
 
@@ -52,7 +56,13 @@ export class FormPokemonComponent {
 	}
 
 	onSubmit() {
-		console.log("Soumition du formulaire");
+		this.pokemonService.updatePokemonInfo(this.newPokemon)
+
 		this.router.navigate([`pokemon-details/${this.pokemon.id}`])
 	}
+
+	returPokemonDetail() {
+		this.router.navigate([`pokemon-details/${this.pokemon.id}`])
+	}
+
 }
