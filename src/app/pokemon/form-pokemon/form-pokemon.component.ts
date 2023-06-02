@@ -56,13 +56,17 @@ export class FormPokemonComponent {
 	}
 
 	onSubmit() {
+		console.log("object");
 		this.pokemonService.updatePokemonInfo(this.newPokemon)
-
 		this.router.navigate([`details-pokemon/${this.pokemon.id}`])
 	}
 
 	returPokemonDetail() {
-		this.router.navigate([`details-pokemon/${this.pokemon.id}`])
+		if (!this.pokemon.id) {
+			this.router.navigate([`pokemons`])
+		} else {
+			this.router.navigate([`details-pokemon/${this.pokemon.id}`])
+		}
 	}
 
 }

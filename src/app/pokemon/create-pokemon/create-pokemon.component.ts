@@ -26,7 +26,6 @@ export class CreatePokemonComponent implements OnInit {
 	handleFileUpload(event: any): void {
 		const file = event.files[0];
 
-		// Vérifier si le fichier est une image
 		if (file && file.type.startsWith('image/')) {
 			const reader = new FileReader();
 			reader.onload = (e: any) => {
