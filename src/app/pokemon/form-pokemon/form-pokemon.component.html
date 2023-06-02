@@ -17,7 +17,7 @@
 			<!-- Pokemon hp -->
 			<div class="form-group mb-3">
 				<label for="hp">Point de vie</label>
-				<input type="number" class="form-control form-control-lg" id="hp" required pattern="^(?:[1-9][0-9][0-9]?)$"
+				<input type="number" class="form-control form-control-lg" id="hp" required pattern="^(?:[1-9][0-9]?[0-9]?)$"
 					[(ngModel)]="newPokemon.hp" name="hp" #hp="ngModel">
 				<div [hidden]="hp.valid || hp.pristine" class="card-panel red accent-1">
 					Les points de vie du pokémon sont compris entre 0 et 999.
