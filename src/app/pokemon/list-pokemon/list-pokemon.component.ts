@@ -22,4 +22,9 @@ export class ListPokemonComponent implements OnInit {
 	showPokemonDetail(id: number) {
 		this.route.navigate([`/details-pokemon/${id}`])
 	}
+
+	createNewPokemon() {
+		this.route.navigate(['/create-pokemon'])
+	}
+
 }
