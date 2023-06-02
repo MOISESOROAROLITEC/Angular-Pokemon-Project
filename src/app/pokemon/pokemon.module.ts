@@ -10,6 +10,7 @@ import { PokemonTypeColorPipe } from './pokemon-type-color.pipe';
 import { PokemonService } from './pokemon.service';
 import { FormPokemonComponent } from './form-pokemon/form-pokemon.component';
 import { CreatePokemonComponent } from './create-pokemon/create-pokemon.component';
+import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 
 import { ButtonModule } from 'primeng/button';
 import { SpeedDialModule } from 'primeng/speeddial';
@@ -17,6 +18,7 @@ import { CardModule } from 'primeng/card';
 import { ChipModule } from 'primeng/chip';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
+import { FileUploadModule } from 'primeng/fileupload';
 
 const pokemonRoutes: Routes = [
 	{ path: "pokemons", component: ListPokemonComponent },
@@ -33,6 +35,7 @@ const pokemonRoutes: Routes = [
 		DetailPokemonComponent,
 		EditPokemonComponent,
 		FormPokemonComponent,
+		PageNotFoundComponent,
 		CreatePokemonComponent,
 	],
 	imports: [
@@ -43,7 +46,8 @@ const pokemonRoutes: Routes = [
 		CardModule,
 		SpeedDialModule,
 		InputTextModule,
-		FormsModule
+		FormsModule,
+		FileUploadModule
 	],
 	providers: [PokemonService]
 })

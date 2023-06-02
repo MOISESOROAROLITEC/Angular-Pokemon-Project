@@ -1,13 +1,12 @@
 <div class="container">
 	<div class="row justify-content-center edit-pokemon">
-		<form *ngIf="newPokemon" (ngSubmit)="onSubmit()" #pokemonForm="ngForm"
-			class="col-lg-7 col-md-8 col-sm-10 col-xs-12 edit-pok-form">
+		<form (ngSubmit)="onSubmit()" #pokemonForm="ngForm" class=" card mb-5 p-4 edit-pok-form">
 
 			<!-- Pokemon name -->
 			<div class="form-group mb-3">
 				<label for="name">Nom</label>
 				<input type="text" class="form-control form-control-lg" id="name" required pattern="^[a-zA-Z0-9àéèç]{1,25}$"
-					[(ngModel)]="newPokemon.name" name="name" #name="ngModel">
+					[(ngModel)]="newPokemon.name" name="name" #name="ngModel" placeholder="Entrez le nom du pokémon">
 
 				<div [hidden]="name.valid || name.pristine" class="card-panel red accent-1">
 					Le nom du pokémon est requis, compris entre 1 et 25 caractère et ne doit pas contenire d'espace ni de

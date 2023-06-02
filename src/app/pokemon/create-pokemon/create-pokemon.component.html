@@ -1,1 +1,13 @@
-<p>create-pokemon works!</p>
+<h2 class="page-title mb-4 text-center">Créer un nouveau pokémon</h2>
+
+<div class="container fileUploder mb-4">
+	<div class="row flex justify-content-center">
+		<div class="col-10">
+			<p-fileUpload [showUploadButton]="false" name="file" (onUpload)="handleFileUpload($event)"></p-fileUpload>
+			<img *ngIf="previewImage" [src]="previewImage" alt="Preview Image">
+
+		</div>
+	</div>
+</div>
+
+<app-form-pokemon [pokemon]="pokemon"></app-form-pokemon>
