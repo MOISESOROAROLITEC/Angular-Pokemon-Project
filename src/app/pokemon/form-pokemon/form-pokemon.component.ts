@@ -86,7 +86,7 @@ export class FormPokemonComponent {
 		if (!this.pokemon.id) {
 			this.router.navigate([`pokemons`])
 		} else {
-			this.router.navigate([`details-pokemon/${this.pokemon.id}`])
+			this.router.navigate([`pokemons/details/${this.pokemon.id}`])
 		}
 	}
 
@@ -95,10 +95,10 @@ export class FormPokemonComponent {
 		if (!this.pokemon.id) {
 			this.newPokemon.id = this.pokemonService.getNewPokemonId();
 			this.pokemonService.addNewPokemon({ ...this.newPokemon });
-			this.router.navigate([`details-pokemon`, this.newPokemon.id])
+			this.router.navigate([`pokemons/details`, this.newPokemon.id])
 		} else {
 			this.pokemonService.updatePokemonInfo(this.newPokemon)
-				.subscribe(() => this.router.navigate([`details-pokemon`, this.pokemon.id]))
+				.subscribe(() => this.router.navigate([`pokemons/details`, this.pokemon.id]))
 		}
 
 	}

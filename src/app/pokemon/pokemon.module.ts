@@ -22,9 +22,9 @@ import { FileUploadModule } from 'primeng/fileupload';
 
 const pokemonRoutes: Routes = [
 	{ path: "pokemons", component: ListPokemonComponent },
-	{ path: "details-pokemon/:id", component: DetailPokemonComponent },
-	{ path: "edit-pokemon/:id", component: EditPokemonComponent },
-	{ path: "create-pokemon", component: CreatePokemonComponent },
+	{ path: "pokemons/details/:id", component: DetailPokemonComponent },
+	{ path: "pokemons/edit/:id", component: EditPokemonComponent },
+	{ path: "pokemons/create", component: CreatePokemonComponent },
 ];
 
 @NgModule({

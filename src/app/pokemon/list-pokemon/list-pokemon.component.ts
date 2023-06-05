@@ -23,11 +23,11 @@ export class ListPokemonComponent implements OnInit {
 	}
 
 	showPokemonDetail(id: number) {
-		this.route.navigate([`/details-pokemon/${id}`])
+		this.route.navigate([`/pokemons/details/${id}`])
 	}
 
 	createNewPokemon() {
-		this.route.navigate(['/create-pokemon'])
+		this.route.navigate(['/pokemons/create'])
 	}
 
 }
