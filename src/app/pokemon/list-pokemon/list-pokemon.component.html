@@ -1,6 +1,6 @@
 <div class="pokemon-list">
 	<h2 class="page-title">Pokemons liste</h2>
-	<div class="container" style="margin-bottom: 10vh;">
+	<div *ngIf="pokemonList" class="container" style="margin-bottom: 10vh;">
 		<div class="pokemonPanel row">
 
 			<p-card *ngFor="let pokemon of pokemonList"
@@ -26,6 +26,19 @@
 			</p-card>
 
 		</div>
+	</div>
+	<div *ngIf="!pokemonList" class="not-pokemon-found">
+		<h3 class="text-center" style="color: #db0000;">Aucun Pokémon trouvé</h3>
+
+		<div class="pokemon-image d-flex justify-content-center">
+			<img src="../../../assets/pokemon_images/293.png" style="max-width: 50vw;" alt="creasy pokemon image"
+				title="image de pokemon désolé">
+		</div>
+
+		<div class="text-center mt-5 ">
+			<p> Ajoutez-en avec le bouton<strong> + </strong>en bas à droite </p>
+		</div>
+
 	</div>
 	<p-button icon="pi pi-plus" (click)="createNewPokemon()"
 		styleClass="p-button-rounded p-button-text p-button-raised p-button-lg"></p-button>
