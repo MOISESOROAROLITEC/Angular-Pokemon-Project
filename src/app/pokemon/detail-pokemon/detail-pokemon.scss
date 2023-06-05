@@ -30,6 +30,13 @@
   display: flex;
   justify-content: center;
   animation: anim-pok-image 0.8s linear infinite alternate both;
+
+	& img{
+		max-width: 50vw;
+		max-height: 50vw;
+    width: 215px;
+    height: 215px;
+	}
 }
 
 .separator {
