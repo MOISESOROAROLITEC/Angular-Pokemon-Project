@@ -82,24 +82,25 @@ export class FormPokemonComponent {
 		return true
 	}
 
-	onSubmit() {
-
-		if (!this.pokemon.id) {
-			this.newPokemon.id = this.pokemonService.getNewPokemonId();
-			this.pokemonService.addNewPokemon({ ...this.newPokemon });
-		} else {
-			this.pokemonService.updatePokemonInfo(this.newPokemon)
-		}
-		this.router.navigate([`details-pokemon/${this.newPokemon.id}`])
-
-	}
-
 	returPokemonDetail() {
 		if (!this.pokemon.id) {
 			this.router.navigate([`pokemons`])
 		} else {
 			this.router.navigate([`details-pokemon/${this.pokemon.id}`])
 		}
+	}
+
+	onSubmit() {
+
+		if (!this.pokemon.id) {
+			this.newPokemon.id = this.pokemonService.getNewPokemonId();
+			this.pokemonService.addNewPokemon({ ...this.newPokemon });
+			this.router.navigate([`details-pokemon`, this.newPokemon.id])
+		} else {
+			this.pokemonService.updatePokemonInfo(this.newPokemon)
+				.subscribe(() => this.router.navigate([`details-pokemon`, this.pokemon.id]))
+		}
+
 	}
 
 }
