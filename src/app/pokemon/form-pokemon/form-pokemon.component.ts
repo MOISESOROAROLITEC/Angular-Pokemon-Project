@@ -1,5 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+
+// import fetch from 'node-fetch';
+// import * as fs from 'fs';
+
 import { Pokemon } from '../pokemon';
 import { PokemonService } from '../pokemon.service';
 
@@ -21,14 +25,37 @@ export class FormPokemonComponent {
 
 	ngOnInit(): void {
 		this.types = this.pokemonService.getPokemonTypesList();
-		if (this.pokemon) {
+		const is = Boolean(this.pokemon.id)
+		if (is) {
 			this.newPokemon = { ...this.pokemon, types: [...this.pokemon.types] };
+		} else {
+			this.newPokemon = { id: 0, name: "", hp: 0, cp: 0, types: [], picture: "../assets/pokemon_images/pokemon-default.png", created: new Date }
 		}
+
 	}
 
 	hasType(type: string): boolean {
 		return this.newPokemon.types.includes(type) || false;
 	}
+
+	// async enregistrerImage(url: string, cheminDossier: string, nomImage: string) {
+	// 	try {
+	// 		const response = await fetch(url);
+	// 		const buffer = await response.buffer();
+	// 		const cheminComplet = `${cheminDossier}/${nomImage}`;
+	// 		fs.writeFileSync(cheminComplet, buffer);
+	// 		console.log('Image enregistrée avec succès !');
+	// 	} catch (error) {
+	// 		console.error('Une erreur s\'est produite :', error);
+	// 	}
+	// }
+
+	// const urlImage = 'https://www.example.com/chemin/vers/image.jpg';
+	// const cheminDossier = '/chemin/vers/dossier';
+	// const nomImage = 'image.jpg';
+
+	// enregistrerImage(urlImage, cheminDossier, nomImage);
+
 
 	selectType($event: Event, type: string) {
 		const isChecked: boolean = ($event.target as HTMLInputElement).checked
@@ -56,8 +83,15 @@ export class FormPokemonComponent {
 	}
 
 	onSubmit() {
-		this.pokemonService.updatePokemonInfo(this.newPokemon)
-		this.router.navigate([`details-pokemon/${this.pokemon.id}`])
+
+		if (!this.pokemon.id) {
+			this.newPokemon.id = this.pokemonService.getNewPokemonId();
+			this.pokemonService.addNewPokemon({ ...this.newPokemon });
+		} else {
+			this.pokemonService.updatePokemonInfo(this.newPokemon)
+		}
+		this.router.navigate([`details-pokemon/${this.newPokemon.id}`])
+
 	}
 
 	returPokemonDetail() {
