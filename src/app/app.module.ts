@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'
+
+import { ButtonModule } from 'primeng/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PokemonModule } from './pokemon/pokemon.module';
-
-import { ButtonModule } from 'primeng/button';
+import { InMemoryDataService } from './in-memory-data.service';
 
 @NgModule({
 	declarations: [
@@ -15,6 +18,8 @@ import { ButtonModule } from 'primeng/button';
 	imports: [
 		BrowserModule,
 		BrowserAnimationsModule,
+		HttpClientModule,
+		HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }),
 		PokemonModule,
 		AppRoutingModule,
 		ButtonModule,

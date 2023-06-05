@@ -16,7 +16,10 @@ export class ListPokemonComponent implements OnInit {
 	) { }
 
 	ngOnInit() {
-		this.pokemonList = this.pokemonService.getPokemonList()
+		this.pokemonService.getPokemonList()
+			.subscribe(pokemons => {
+				this.pokemonList = pokemons
+			})
 	}
 
 	showPokemonDetail(id: number) {
