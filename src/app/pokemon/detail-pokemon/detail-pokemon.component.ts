@@ -26,7 +26,7 @@ export class DetailPokemonComponent implements OnInit {
 		}
 	}
 
-	gotToPokemonListPage(name?: string) {
+	gotToPokemonsList(name?: string) {
 		if (!name) {
 			this.route.navigate([`/pokemons`]);
 		} else {
@@ -40,7 +40,7 @@ export class DetailPokemonComponent implements OnInit {
 
 	deletePokemon(id: number) {
 		this.pokemonService.deletePokemon(id).subscribe(
-			() => this.route.navigate([`/pokemons`])
+			() => this.gotToPokemonsList()
 		);
 	}
 
