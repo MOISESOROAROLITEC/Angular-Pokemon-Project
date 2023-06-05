@@ -1,7 +1,7 @@
-<div class="container">
-	<h2 class="page-title text-center text-break" style="font-weight: bold;letter-spacing: 1rem; font-size: xx-large;">
-		{{pokemon?.name}} </h2>
-	<div *ngIf="pokemon" class="card mb-5">
+<div class="container" *ngIf="pokemon">
+	<h2 class=" page-title text-center text-break" style="font-weight: bold;letter-spacing: 1rem; font-size: xx-large;">
+		{{pokemon.name}} </h2>
+	<div *ngIf="pokemon.id" class="card mb-5">
 		<div class="row">
 			<div class="col-md-4 col-sm-12 align-items-center image-box">
 				<img src="{{pokemon.picture}}" alt="">
@@ -37,10 +37,12 @@
 					styleClass="p-button-text p-button-warning" (click)="gotToPokemonListPage( pokemon.name )"></p-button>
 				<p-button label="Modilier" title="modifier les informations du pokemon" icon="pi pi-pencil" class="return-btn"
 					styleClass="p-button-text" (click)="editPokemon( pokemon.id )"></p-button>
+				<p-button label="Supprimer" title="supprimer le pokemon" icon="pi pi-trash" class="return-btn"
+					styleClass="p-button-text" (click)="deletePokemon( pokemon.id )"></p-button>
 			</div>
 		</div>
 	</div>
 </div>
-<div *ngIf="!pokemon">
+<div *ngIf="!pokemon?.id">
 	<app-page-not-found></app-page-not-found>
 </div>

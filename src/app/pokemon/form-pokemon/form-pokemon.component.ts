@@ -99,6 +99,7 @@ export class FormPokemonComponent {
 		if (!this.pokemon.id) {
 
 			this.newPokemon.id = this.pokemonService.getNewPokemonId();
+			console.log(this.newPokemon);
 			this.pokemonService.addNewPokemon({ ...this.newPokemon });
 			this.showNotification("success", "Créée", "Pokémon créée avec succes")
 			this.router.navigate([`pokemons/details`, this.newPokemon.id])
