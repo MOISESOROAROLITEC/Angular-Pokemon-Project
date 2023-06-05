@@ -31,7 +31,7 @@ export class FormPokemonComponent {
 		if (is) {
 			this.newPokemon = { ...this.pokemon, types: [...this.pokemon.types] };
 		} else {
-			this.newPokemon = { id: 0, name: "", hp: 0, cp: 0, types: [], picture: "../assets/pokemon_images/pokemon-default.png", created: new Date }
+			this.newPokemon = new Pokemon();
 		}
 	}
 
@@ -98,11 +98,16 @@ export class FormPokemonComponent {
 	onSubmit() {
 		if (!this.pokemon.id) {
 
-			this.newPokemon.id = this.pokemonService.getNewPokemonId();
-			console.log(this.newPokemon);
-			this.pokemonService.addNewPokemon({ ...this.newPokemon });
-			this.showNotification("success", "Créée", "Pokémon créée avec succes")
-			this.router.navigate([`pokemons/details`, this.newPokemon.id])
+			// this.newPokemon.id = this.pokemonService.getNewPokemonId();
+			// console.log(this.newPokemon);
+			this.pokemonService.addNewPokemon(this.newPokemon).subscribe(
+				(pokemon: Pokemon) => {
+					this.showNotification("success", "Créée", "Pokémon créée avec succes")
+					this.router.navigate([`pokemons/details`, pokemon.id])
+				},
+				(error) => this.showNotification("warning", "Erreur", "Erreur lors de la création du Pokémon")
+
+			);
 
 		} else {
 			this.pokemonService.updatePokemonInfo(this.newPokemon)
