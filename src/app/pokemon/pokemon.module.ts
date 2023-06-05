@@ -19,6 +19,7 @@ import { ChipModule } from 'primeng/chip';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { FileUploadModule } from 'primeng/fileupload';
+import { ToastModule } from 'primeng/toast';
 
 const pokemonRoutes: Routes = [
 	{ path: "pokemons", component: ListPokemonComponent },
@@ -41,6 +42,7 @@ const pokemonRoutes: Routes = [
 	imports: [
 		CommonModule,
 		RouterModule.forChild(pokemonRoutes),
+		ToastModule,
 		ChipModule,
 		ButtonModule,
 		CardModule,

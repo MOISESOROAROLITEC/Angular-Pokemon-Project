@@ -6,11 +6,12 @@ import { Router } from '@angular/router';
 
 import { Pokemon } from '../pokemon';
 import { PokemonService } from '../pokemon.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
 	selector: 'app-form-pokemon',
 	templateUrl: './form-pokemon.component.html',
-	styleUrls: ['./form-pokemon.component.scss']
+	styleUrls: ['./form-pokemon.component.scss'],
 })
 export class FormPokemonComponent {
 
@@ -21,6 +22,7 @@ export class FormPokemonComponent {
 	constructor(
 		private pokemonService: PokemonService,
 		private router: Router,
+		private messageService: MessageService
 	) { }
 
 	ngOnInit(): void {
@@ -31,7 +33,6 @@ export class FormPokemonComponent {
 		} else {
 			this.newPokemon = { id: 0, name: "", hp: 0, cp: 0, types: [], picture: "../assets/pokemon_images/pokemon-default.png", created: new Date }
 		}
-
 	}
 
 	hasType(type: string): boolean {
@@ -90,15 +91,26 @@ export class FormPokemonComponent {
 		}
 	}
 
-	onSubmit() {
+	showNotification(severity: string = 'success', summary: string = 'Success', detail: string = 'Default Message') {
+		this.messageService.add({ severity, summary, detail })
+	}
 
+	onSubmit() {
 		if (!this.pokemon.id) {
+
 			this.newPokemon.id = this.pokemonService.getNewPokemonId();
 			this.pokemonService.addNewPokemon({ ...this.newPokemon });
+			this.showNotification("success", "Créée", "Pokémon créée avec succes")
 			this.router.navigate([`pokemons/details`, this.newPokemon.id])
+
 		} else {
 			this.pokemonService.updatePokemonInfo(this.newPokemon)
-				.subscribe(() => this.router.navigate([`pokemons/details`, this.pokemon.id]))
+				.subscribe(() => {
+
+					this.router.navigate([`pokemons/details`, this.pokemon.id]);
+					this.showNotification("success", "Mise à jour", "Le Pokémon a été mise à jour avec succes")
+
+				})
 		}
 
 	}
