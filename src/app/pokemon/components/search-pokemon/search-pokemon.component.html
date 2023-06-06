@@ -1,0 +1,14 @@
+<div class="container">
+	<p-card class="row text-center mb-4">
+		<input type="text" #searchTerm (keyup)="searchPokemon(searchTerm.value)" class="col-10" pInputText
+			placeholder="Récherche de pokemon" />
+
+		<div class="col-12 mt-3 list-group ">
+			<div *ngFor="let pokemon of pokemonList$ | async" class="pokname">
+				<div (click)="goToPokemonDetail(pokemon.id)" class="list-group-item list-group-item-action">{{pokemon.name}}
+				</div>
+			</div>
+		</div>
+
+	</p-card>
+</div>

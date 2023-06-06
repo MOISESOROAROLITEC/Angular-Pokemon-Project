@@ -1,5 +1,6 @@
 <div class="pokemon-list">
 	<h2 class="page-title">Pokemons liste</h2>
+	<app-search-pokemon></app-search-pokemon>
 	<div *ngIf="pokemonList" class="container" style="margin-bottom: 10vh;">
 		<div class="pokemonPanel row">
 			<div *ngFor="let pokemon of pokemonList"

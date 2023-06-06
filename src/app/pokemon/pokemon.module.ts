@@ -20,6 +20,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { FileUploadModule } from 'primeng/fileupload';
 import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
+import { SearchPokemonComponent } from './components/search-pokemon/search-pokemon.component';
 
 const pokemonRoutes: Routes = [
 	{ path: "pokemons", component: ListPokemonComponent },
@@ -39,6 +40,7 @@ const pokemonRoutes: Routes = [
 		PageNotFoundComponent,
 		CreatePokemonComponent,
 		PokemonCardComponent,
+  SearchPokemonComponent,
 	],
 	imports: [
 		CommonModule,
