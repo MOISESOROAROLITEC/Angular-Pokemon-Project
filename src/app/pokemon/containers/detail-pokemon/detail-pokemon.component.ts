@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Pokemon } from '../pokemon';
-import { PokemonService } from '../pokemon.service';
+import { Pokemon } from '../../models/pokemon.model';
+import { PokemonService } from '../../pokemon.service';
 
 @Component({
 	selector: 'app-detail-pokemon',
@@ -40,7 +40,10 @@ export class DetailPokemonComponent implements OnInit {
 
 	deletePokemon(id: number) {
 		this.pokemonService.deletePokemon(id).subscribe(
-			() => this.gotToPokemonsList()
+			() => {
+
+				this.gotToPokemonsList()
+			}
 		);
 	}
 

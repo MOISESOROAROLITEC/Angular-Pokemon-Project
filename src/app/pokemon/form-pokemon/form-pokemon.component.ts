@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Pokemon } from '../pokemon';
+import { Pokemon } from '../models/pokemon.model';
 import { PokemonService } from '../pokemon.service';
-import { MessageService } from 'primeng/api';
+import { NotificationService } from 'src/app/notification.service';
 
 @Component({
 	selector: 'app-form-pokemon',
@@ -21,7 +21,7 @@ export class FormPokemonComponent {
 	constructor(
 		private pokemonService: PokemonService,
 		private router: Router,
-		private messageService: MessageService
+		private notificationService: NotificationService
 	) { }
 
 	ngOnInit(): void {
@@ -71,27 +71,22 @@ export class FormPokemonComponent {
 		}
 	}
 
-	showNotification(severity: string = 'success', summary: string = 'Success', detail: string = 'Default Message') {
-		this.messageService.add({ severity, summary, detail })
-	}
-
 	onSubmit() {
 		if (!this.pokemon.id) {
 
 			this.pokemonService.addNewPokemon(this.newPokemon).subscribe(
 				(pokemon: Pokemon) => {
-					this.showNotification("success", "Créée", "Pokémon créée avec succes")
+					this.notificationService.showSuccess("Pokémon créée avec succes")
 					this.router.navigate([`pokemons/details`, pokemon.id])
 				},
-				() => this.showNotification("warning", "Erreur", "Erreur lors de la création du Pokémon")
-
+				() => this.notificationService.showError("Erreur lors de la création du Pokémon")
 			);
 
 		} else {
 			this.pokemonService.updatePokemonInfo(this.newPokemon)
 				.subscribe(() => {
 					this.router.navigate([`pokemons/details`, this.pokemon.id]);
-					this.showNotification("success", "Mise à jour", "Le Pokémon a été mise à jour avec succes");
+					this.notificationService.showSuccess("Le Pokémon a été mise à jour avec succes");
 				})
 		}
 	}

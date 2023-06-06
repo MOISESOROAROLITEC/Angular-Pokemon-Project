@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-import { DetailPokemonComponent } from './detail-pokemon/detail-pokemon.component';
+import { DetailPokemonComponent } from './containers/detail-pokemon/detail-pokemon.component';
 import { EditPokemonComponent } from './edit-pokemon/edit-pokemon.component';
-import { ListPokemonComponent } from './list-pokemon/list-pokemon.component';
+import { ListPokemonComponent } from './containers/list-pokemon/list-pokemon.component';
 import { HoverCardDirective } from './hover-card.directive';
-import { PokemonTypeColorPipe } from './pokemon-type-color.pipe';
+import { PokemonTypeColorPipe } from './pipes/pokemon-type-color.pipe';
 import { PokemonService } from './pokemon.service';
 import { FormPokemonComponent } from './form-pokemon/form-pokemon.component';
 import { CreatePokemonComponent } from './create-pokemon/create-pokemon.component';
@@ -19,7 +19,7 @@ import { ChipModule } from 'primeng/chip';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { FileUploadModule } from 'primeng/fileupload';
-import { ToastModule } from 'primeng/toast';
+import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
 
 const pokemonRoutes: Routes = [
 	{ path: "pokemons", component: ListPokemonComponent },
@@ -38,11 +38,11 @@ const pokemonRoutes: Routes = [
 		FormPokemonComponent,
 		PageNotFoundComponent,
 		CreatePokemonComponent,
+		PokemonCardComponent,
 	],
 	imports: [
 		CommonModule,
 		RouterModule.forChild(pokemonRoutes),
-		ToastModule,
 		ChipModule,
 		ButtonModule,
 		CardModule,

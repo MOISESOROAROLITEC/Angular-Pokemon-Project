@@ -1,0 +1,19 @@
+<p-card (click)='onShowDetail(pokemon.id)' title="voir les details de {{pokemon.name}}">
+
+	<ng-template pTemplate="header" class="pok-image-emplate">
+		<img alt="Card" [src]="pokemon.picture" class="pok-image" />
+	</ng-template>
+
+	<section class="pok-list-section" id="{{pokemon.name}}">
+		<div class="m-1 pok-infos">
+			<p class="pok-name">
+				{{pokemon.name | uppercase}}
+			</p>
+			<p class="pok-date"> {{pokemon.created|date}} </p>
+			<span *ngFor="let type of pokemon.types" class="{{type | pokemonTypeColor}}">
+				{{type}}
+			</span>
+		</div>
+	</section>
+
+</p-card>

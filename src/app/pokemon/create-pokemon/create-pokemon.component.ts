@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Pokemon } from '../pokemon';
+import { Pokemon } from '../models/pokemon.model';
 import { PokemonService } from '../pokemon.service';
 import { FileUploadEvent } from 'primeng/fileupload';
 

@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { PokemonService } from '../pokemon.service';
-import { Pokemon } from '../pokemon';
+import { Pokemon } from '../models/pokemon.model';
 import { POKEMONS } from '../mock-pokemons';
 
 @Component({

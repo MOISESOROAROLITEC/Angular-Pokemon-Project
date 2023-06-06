@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PokemonModule } from './pokemon/pokemon.module';
 import { InMemoryDataService } from './in-memory-data.service';
+import { MessageService } from 'primeng/api';
+import { NotificationService } from './notification.service';
 
 @NgModule({
 	declarations: [
@@ -26,7 +28,13 @@ import { InMemoryDataService } from './in-memory-data.service';
 		AppRoutingModule,
 		ButtonModule,
 	],
-	providers: [],
+	providers: [MessageService],
 	bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+	constructor(
+	) { }
+
+
+}
