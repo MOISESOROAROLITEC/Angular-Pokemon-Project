@@ -14,6 +14,17 @@
 				</div>
 			</div>
 
+			<div *ngIf="isEdit" class="form-group mb-3">
+				<label for="name">Image</label>
+				<input type="url" class="form-control form-control-lg" id="picture" required [(ngModel)]="newPokemon.picture"
+					name="picture" #picture="ngModel" placeholder="Entrez url de l'image pokémon">
+
+				<div [hidden]="picture.valid || picture.pristine" class="card-panel red accent-1">
+					Entrez une url correcte. <br>
+					Ex: https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png
+				</div>
+			</div>
+
 			<!-- Pokemon hp -->
 			<div class="form-group mb-3">
 				<label for="hp">Point de vie</label>

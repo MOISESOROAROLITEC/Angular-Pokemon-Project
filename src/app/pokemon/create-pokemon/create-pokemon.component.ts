@@ -11,7 +11,7 @@ import { FileUploadEvent } from 'primeng/fileupload';
 export class CreatePokemonComponent implements OnInit {
 	pokemon: Pokemon
 	types: string[]
-	files: null
+	files: string[]
 	previewImage: string | undefined;
 
 	constructor(
@@ -20,7 +20,7 @@ export class CreatePokemonComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.types = this.pokemonService.getPokemonTypesList();
-		this.pokemon = { name: "", cp: 0, id: 0, hp: 0, picture: "", types: [], created: new Date }
+		this.pokemon = new Pokemon()
 	}
 
 	handleFileUpload(event: any): void {
