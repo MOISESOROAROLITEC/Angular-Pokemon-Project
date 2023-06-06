@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 import { DetailPokemonComponent } from './containers/detail-pokemon/detail-pokemon.component';
-import { EditPokemonComponent } from './edit-pokemon/edit-pokemon.component';
+import { EditPokemonComponent } from './containers/edit-pokemon/edit-pokemon.component';
 import { ListPokemonComponent } from './containers/list-pokemon/list-pokemon.component';
 import { HoverCardDirective } from './hover-card.directive';
 import { PokemonTypeColorPipe } from './pipes/pokemon-type-color.pipe';
 import { PokemonService } from './pokemon.service';
-import { FormPokemonComponent } from './form-pokemon/form-pokemon.component';
-import { CreatePokemonComponent } from './create-pokemon/create-pokemon.component';
+import { FormPokemonComponent } from './components/form-pokemon/form-pokemon.component';
+import { CreatePokemonComponent } from './containers/create-pokemon/create-pokemon.component';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 
 import { ButtonModule } from 'primeng/button';

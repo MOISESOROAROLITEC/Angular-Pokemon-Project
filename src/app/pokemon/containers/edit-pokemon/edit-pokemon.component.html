@@ -6,7 +6,7 @@
 		<div class="col-12 pokemon-image">
 			<img [src]="pokemon.picture" alt="pokemon picture" title="image du pokemon">
 		</div>
-		<app-form-pokemon [pokemon]="pokemon"></app-form-pokemon>
+		<app-form-pokemon [pokemon]="pokemon" (onUpdatePokemon)="updatePokemon($event)"></app-form-pokemon>
 	</div>
 
 	<h3 *ngIf="!pokemon" class="center">Aucun pokémon à éditer...</h3>

@@ -14,7 +14,7 @@
 				</div>
 			</div>
 
-			<div *ngIf="isEdit" class="form-group mb-3">
+			<div *ngIf="!isEdit" class="form-group mb-3">
 				<label for="name">Image</label>
 				<input type="url" class="form-control form-control-lg" id="picture" required [(ngModel)]="newPokemon.picture"
 					name="picture" #picture="ngModel" placeholder="Entrez url de l'image pokémon">
@@ -67,7 +67,11 @@
 				<p-button label=" Retour" (click)="returPokemonDetail()" title="retour à la liste des pokemons"
 					icon="pi pi-angle-left" class="return-btn" styleClass="p-button-text"></p-button>
 
-				<p-button type="submit" [disabled]="!pokemonForm.form.valid" label="Sauvegarder"
+				<p-button *ngIf="!isEdit" type="submit" (onsubmit)="onSubmit()" [disabled]="!pokemonForm.form.valid"
+					label="Créer" title="Sauvegarder les informations du pokemon" icon="pi pi-check" class="return-btn"
+					styleClass="p-button-text"></p-button>
+
+				<p-button *ngIf="isEdit" type="submit" [disabled]="!pokemonForm.form.valid" label="Sauvegarder"
 					title="Sauvegarder les informations du pokemon" icon="pi pi-check" class="return-btn"
 					styleClass="p-button-text"></p-button>
 			</div>

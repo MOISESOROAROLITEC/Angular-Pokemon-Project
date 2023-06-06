@@ -1,8 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Pokemon } from '../models/pokemon.model';
-import { PokemonService } from '../pokemon.service';
+import { Pokemon } from '../../models/pokemon.model';
+import { PokemonService } from '../../pokemon.service';
 import { NotificationService } from 'src/app/notification.service';
 
 @Component({
@@ -13,7 +13,9 @@ import { NotificationService } from 'src/app/notification.service';
 export class FormPokemonComponent {
 
 	@Input() pokemon: Pokemon;
-	@Input() files: string[];
+	@Output() onCreatePokemon = new EventEmitter<Pokemon>()
+	@Output() onUpdatePokemon = new EventEmitter<Pokemon>()
+
 	newPokemon: Pokemon
 	types: string[];
 	isEdit: boolean;
@@ -26,7 +28,7 @@ export class FormPokemonComponent {
 
 	ngOnInit(): void {
 		this.types = this.pokemonService.getPokemonTypesList();
-		this.isEdit = !Boolean(this.pokemon.id)
+		this.isEdit = Boolean(this.pokemon.id)
 		if (this.isEdit) {
 			this.newPokemon = { ...this.pokemon, types: [...this.pokemon.types] };
 		} else {
@@ -72,22 +74,10 @@ export class FormPokemonComponent {
 	}
 
 	onSubmit() {
-		if (!this.pokemon.id) {
-
-			this.pokemonService.addNewPokemon(this.newPokemon).subscribe(
-				(pokemon: Pokemon) => {
-					this.notificationService.showSuccess("Pokémon créée avec succes")
-					this.router.navigate([`pokemons/details`, pokemon.id])
-				},
-				() => this.notificationService.showError("Erreur lors de la création du Pokémon")
-			);
-
+		if (this.isEdit) {
+			this.onUpdatePokemon.emit(this.newPokemon)
 		} else {
-			this.pokemonService.updatePokemonInfo(this.newPokemon)
-				.subscribe(() => {
-					this.router.navigate([`pokemons/details`, this.pokemon.id]);
-					this.notificationService.showSuccess("Le Pokémon a été mise à jour avec succes");
-				})
+			this.onCreatePokemon.emit(this.newPokemon)
 		}
 	}
 }
