@@ -14,6 +14,10 @@ export class NotificationService {
 		this.messageService.add({ key: this.toastKey, severity: "error", summary: "Error", detail: message })
 	}
 
+	showDanger(message: string) {
+		this.messageService.add({ key: this.toastKey, severity: "danger", summary: "Avertissement", detail: message })
+	}
+
 	showSuccess(message: string) {
 		this.messageService.add({ key: this.toastKey, severity: "success", summary: "Success", detail: message })
 	}

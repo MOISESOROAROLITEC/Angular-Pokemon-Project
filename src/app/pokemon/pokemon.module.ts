@@ -21,12 +21,13 @@ import { FormsModule } from '@angular/forms';
 import { FileUploadModule } from 'primeng/fileupload';
 import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
 import { SearchPokemonComponent } from './components/search-pokemon/search-pokemon.component';
+import { AuthGuard } from '../auth/auth.guard';
 
 const pokemonRoutes: Routes = [
-	{ path: "pokemons", component: ListPokemonComponent },
-	{ path: "pokemons/details/:id", component: DetailPokemonComponent },
-	{ path: "pokemons/edit/:id", component: EditPokemonComponent },
-	{ path: "pokemons/create", component: CreatePokemonComponent },
+	{ path: "pokemons", component: ListPokemonComponent, canActivate: [AuthGuard] },
+	{ path: "pokemons/details/:id", component: DetailPokemonComponent, canActivate: [AuthGuard] },
+	{ path: "pokemons/edit/:id", component: EditPokemonComponent, canActivate: [AuthGuard] },
+	{ path: "pokemons/create", component: CreatePokemonComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
@@ -40,7 +41,7 @@ const pokemonRoutes: Routes = [
 		PageNotFoundComponent,
 		CreatePokemonComponent,
 		PokemonCardComponent,
-  SearchPokemonComponent,
+		SearchPokemonComponent,
 	],
 	imports: [
 		CommonModule,

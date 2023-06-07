@@ -1,13 +1,14 @@
 import { Pokemon } from "./models/pokemon.model";
 
 export const POKEMONS: Pokemon[] = [
+
 	{
 		id: 1,
-		name: "Bulbizarre",
-		hp: 25,
-		cp: 5,
-		picture: "../assets/pokemon_images/001.png",
-		types: ["Plante", "Poison"],
+		name: "Tokorico",
+		hp: 35,
+		cp: 58,
+		picture: "../assets/pokemon_images/785.png",
+		types: ["Feu"],
 		created: new Date()
 	},
 	{
@@ -108,5 +109,14 @@ export const POKEMONS: Pokemon[] = [
 		picture: "../assets/pokemon_images/037.png",
 		types: ["Feu"],
 		created: new Date()
-	}
+	},
+	{
+		id: 13,
+		name: "Bulbizarre",
+		hp: 25,
+		cp: 5,
+		picture: "../assets/pokemon_images/001.png",
+		types: ["Plante", "Poison"],
+		created: new Date()
+	},
 ];
