@@ -3,8 +3,6 @@
 		<form *ngIf="!auth.isLoggedIn()" (ngSubmit)="login()" #form="ngForm" class="col-12 col-xxl-8 col-xl-8 col-md-8">
 			<h2 class="page-title">Authantification</h2>
 
-			<!-- <h5 class="text-center mt-3 mb-3" [ngStyle]="{color: 'var(--red-300)'}">{{message}}</h5> -->
-
 			<div *ngIf="progress" class="text-center">
 				<p-progressSpinner styleClass="w-4rem h-4rem" strokeWidth="8" fill="var(--surface-ground)"
 					animationDuration=".5s"></p-progressSpinner>
