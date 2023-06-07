@@ -28,7 +28,7 @@ export class CreatePokemonComponent implements OnInit {
 	CreatePokemon(pokemon: Pokemon) {
 		this.pokemonService.addNewPokemon(pokemon).subscribe(
 			(pokemon: Pokemon) => {
-				this.notificationService.showSuccess("Pokémon créée avec succes")
+				this.notificationService.showSuccess("Pokémon créée avec succes");
 				this.router.navigate([`pokemons/details`, pokemon.id])
 			},
 			() => this.notificationService.showError("Erreur lors de la création du Pokémon")

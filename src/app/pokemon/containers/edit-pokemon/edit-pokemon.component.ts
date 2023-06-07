@@ -31,11 +31,12 @@ export class EditPokemonComponent implements OnInit {
 	}
 
 	updatePokemon(pokemon: Pokemon) {
-		this.pokemonService.updatePokemonInfo(pokemon)
-			.subscribe(() => {
+		this.pokemonService.updatePokemonInfo(pokemon).subscribe(
+			() => {
 				this.router.navigate([`pokemons/details`, pokemon.id]);
 				this.notificationService.showSuccess("Le Pokémon a été mise à jour avec succes");
-			})
+			}
+		)
 	}
 
 }
