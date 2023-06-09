@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 	styleUrls: ['./page-not-found.component.scss']
 })
 export class PageNotFoundComponent {
+	@Input() message: string = "Cette page est introuvable"
+
 	constructor(private route: Router) { }
 
 	returnButton(name?: string) {

@@ -2,6 +2,8 @@
 
 #my gitignore
 package-lock.json
+firebase.json
+.firebaserc
 
 # Compiled output
 /dist

@@ -22,6 +22,7 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
 import { SearchPokemonComponent } from './components/search-pokemon/search-pokemon.component';
 import { AuthGuard } from '../auth/auth.guard';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 const pokemonRoutes: Routes = [
 	{ path: "pokemons", component: ListPokemonComponent, canActivate: [AuthGuard] },
@@ -52,7 +53,7 @@ const pokemonRoutes: Routes = [
 		SpeedDialModule,
 		InputTextModule,
 		FormsModule,
-		FileUploadModule
+		ProgressSpinnerModule,
 	],
 	providers: [PokemonService]
 })

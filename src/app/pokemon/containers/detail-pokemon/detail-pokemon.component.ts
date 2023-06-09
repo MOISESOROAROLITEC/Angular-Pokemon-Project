@@ -11,6 +11,8 @@ import { NotificationService } from 'src/app/notification.service';
 export class DetailPokemonComponent implements OnInit {
 
 	pokemon: Pokemon | undefined
+	message = "Ce pokémon est introuvable"
+	loadingPokemon: boolean = true
 
 	constructor(
 		private activatedRoute: ActivatedRoute,
@@ -24,7 +26,10 @@ export class DetailPokemonComponent implements OnInit {
 
 		if (id) {
 			this.pokemonService.getPokemonById(+id)
-				.subscribe((pokemons) => { this.pokemon = pokemons })
+				.subscribe((pokemons) => {
+					this.loadingPokemon = false
+					this.pokemon = pokemons
+				})
 		}
 	}
 

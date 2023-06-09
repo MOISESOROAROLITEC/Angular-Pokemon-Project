@@ -32,7 +32,7 @@ import { LoginComponent } from './login/login.component';
 		PokemonModule,
 		AppRoutingModule,
 		ButtonModule,
-		ProgressSpinnerModule
+		ProgressSpinnerModule,
 	],
 	providers: [MessageService, PermissionsService],
 	bootstrap: [AppComponent]
