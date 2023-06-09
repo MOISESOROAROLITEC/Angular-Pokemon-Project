@@ -8,6 +8,7 @@ export class PermissionsService {
 		private authService: AuthService,
 		private router: Router
 	) { }
+
 	canActivate(): boolean {
 		if (this.authService.isLoggedIn()) {
 			return true
