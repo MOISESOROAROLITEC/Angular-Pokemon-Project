@@ -9,5 +9,7 @@
 		<app-form-pokemon [pokemon]="pokemon" (onUpdatePokemon)="updatePokemon($event)"></app-form-pokemon>
 	</div>
 
-	<h3 *ngIf="!pokemon" class="center">Aucun pokémon à éditer...</h3>
+	<app-spiner [loadingPokemon]="loading"></app-spiner>
+
+	<h3 *ngIf="!loading && !pokemon" class="text-center">Aucun pokémon à éditer...</h3>
 </div>

@@ -9,6 +9,7 @@ import { PokemonService } from '../../pokemon.service';
 })
 export class ListPokemonComponent implements OnInit {
 	pokemonList: Pokemon[];
+	loadingPokemons: boolean = true;
 
 	constructor(
 		private route: Router,
@@ -18,6 +19,7 @@ export class ListPokemonComponent implements OnInit {
 	ngOnInit() {
 		this.pokemonService.getPokemonList()
 			.subscribe(pokemons => {
+				this.loadingPokemons = false
 				this.pokemonList = pokemons
 			})
 	}

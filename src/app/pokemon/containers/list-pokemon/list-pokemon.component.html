@@ -1,7 +1,7 @@
 <div class="pokemon-list">
 	<h2 class="page-title">Pokemons liste</h2>
-	<app-search-pokemon></app-search-pokemon>
 	<div *ngIf="pokemonList" class="container" style="margin-bottom: 10vh;">
+		<app-search-pokemon></app-search-pokemon>
 		<div class="pokemonPanel row">
 			<div *ngFor="let pokemon of pokemonList"
 				class="m-0 pokemon-card col-xl-3 col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12 d.flex align-items-center">
@@ -9,7 +9,10 @@
 			</div>
 		</div>
 	</div>
-	<div *ngIf="!pokemonList" class="not-pokemon-found">
+
+	<app-spiner [loadingPokemon]="loadingPokemons"></app-spiner>
+
+	<div *ngIf="!loadingPokemons && !pokemonList" class="not-pokemon-found">
 		<h3 class="text-center" style="color: #db0000;">Aucun Pokémon trouvé</h3>
 
 		<div class="pokemon-image d-flex justify-content-center">

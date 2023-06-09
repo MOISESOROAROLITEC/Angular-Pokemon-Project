@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { PokemonService } from '../../pokemon.service';
@@ -14,6 +14,7 @@ import { NotificationService } from 'src/app/notification.service';
 export class EditPokemonComponent implements OnInit {
 
 	pokemon: Pokemon | undefined;
+	loading: boolean = true
 
 	constructor(
 		private activatedRoute: ActivatedRoute,
@@ -26,7 +27,14 @@ export class EditPokemonComponent implements OnInit {
 		const id: string | null = this.activatedRoute.snapshot.paramMap.get("id");
 
 		if (id) {
-			this.pokemon = POKEMONS.find(pokemon => pokemon.id == +id)
+			this.pokemonService.getPokemonById(+id).subscribe(
+				(pokemon) => {
+					this.loading = false
+					if (pokemon?.id) {
+						this.pokemon = pokemon;
+					}
+				}
+			)
 		}
 	}
 
