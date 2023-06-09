@@ -1,14 +1,17 @@
 <div class="container">
-	<p-card class="row text-center mb-4">
-		<input type="text" #searchTerm (keyup)="searchPokemon(searchTerm.value)" class="col-10" pInputText
-			placeholder="Récherche de pokemon" />
+	<div class="row">
+		<p-card class="text-center mb-4 col-10 col-xl-8 col-lg-8 ">
 
-		<div class="col-12 mt-3 list-group ">
-			<div *ngFor="let pokemon of pokemonList$ | async" class="pokname">
-				<div (click)="goToPokemonDetail(pokemon.id)" class="list-group-item list-group-item-action">{{pokemon.name}}
+			<input type="text" #searchTerm (keyup)="searchPokemon(searchTerm.value)" class="col-10" pInputText
+				placeholder="Récherche de pokemon" />
+
+			<div class="col-10 mt-3 list-group ">
+				<div *ngFor="let pokemon of pokemonList$ | async" class="pokname">
+					<div (click)="goToPokemonDetail(pokemon.id)" class="list-group-item list-group-item-action">{{pokemon.name}}
+					</div>
 				</div>
 			</div>
-		</div>
 
-	</p-card>
+		</p-card>
+	</div>
 </div>
