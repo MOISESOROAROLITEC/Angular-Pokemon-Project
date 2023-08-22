@@ -17,7 +17,8 @@ export class LoginComponent implements OnInit {
 	constructor(
 		private authService: AuthService,
 		private router: Router,
-		private notificationService: NotificationService
+		private notificationService: NotificationService,
+    private route: Router
 	) { }
 
 	ngOnInit(): void {
@@ -51,6 +52,10 @@ export class LoginComponent implements OnInit {
 
 	logout() {
 		this.authService.logout()
+	}
+
+  returnButton() {
+		this.route.navigate([`/pokemons`]);
 	}
 
 }

@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 
 import { Pokemon } from '../../models/pokemon.model';
 import { PokemonService } from '../../pokemon.service';
-import { NotificationService } from 'src/app/notification.service';
 
 @Component({
 	selector: 'app-form-pokemon',
@@ -23,7 +22,6 @@ export class FormPokemonComponent {
 	constructor(
 		private pokemonService: PokemonService,
 		private router: Router,
-		private notificationService: NotificationService
 	) { }
 
 	ngOnInit(): void {
