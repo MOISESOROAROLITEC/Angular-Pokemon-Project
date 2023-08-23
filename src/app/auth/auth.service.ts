@@ -1,40 +1,38 @@
-import { Injectable } from '@angular/core';
-import { Observable, delay, of, tap } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { Observable, delay, of, tap } from "rxjs";
 
 @Injectable({
-	providedIn: 'root'
+  providedIn: "root",
 })
 export class AuthService {
-	redirectUrl: string
-	constructor() { }
+  redirectUrl: string;
+  constructor() {}
 
-	isLoggedIn(): boolean {
-		return Boolean(localStorage.getItem("isConnected"))
-	}
+  isLoggedIn(): boolean {
+    return Boolean(localStorage.getItem("isConnected"));
+  }
 
-	connect() {
-		localStorage.setItem("isConnected", "true")
-	}
+  connect() {
+    localStorage.setItem("isConnected", "true");
+  }
 
-	desconnect() {
-		localStorage.removeItem("isConnected")
-	}
+  desconnect() {
+    localStorage.removeItem("isConnected");
+  }
 
-	login(name: string, password: string): Observable<boolean> {
-		const isLoggedIn = (name === "soro" && password === "soro")
+  login(name: string, password: string): Observable<boolean> {
+    const isLoggedIn = name === "soro" && password === "soro";
 
-		return of(isLoggedIn).pipe(
-			delay(1000),
-			tap(isLoggedIn => {
-				if (isLoggedIn) {
-					this.connect()
-				}
-			})
-		)
-	}
+    return of(isLoggedIn).pipe(
+      tap((isLoggedIn) => {
+        if (isLoggedIn) {
+          this.connect();
+        }
+      }),
+    );
+  }
 
-	logout() {
-		this.desconnect()
-	}
-
+  logout() {
+    this.desconnect();
+  }
 }

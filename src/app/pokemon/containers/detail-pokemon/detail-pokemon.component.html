@@ -1,54 +1,89 @@
 <div class="container" *ngIf="pokemon">
-	<h2 class=" page-title text-center text-break" style="font-weight: bold;letter-spacing: 1rem; font-size: xx-large;">
-		{{pokemon.name}} </h2>
-	<div *ngIf="pokemon.id" class="card mb-5">
-		<div class="row">
-			<div class="col-md-4 col-sm-12 align-items-center image-box">
-				<img src="{{pokemon.picture}}" alt="">
-			</div>
-			<div class="container-fluid col-md-8 col-sm-12 details-infos">
-				<div class="row line line-color name">
-					<div class="line-left col-6">Nom</div>
-					<div class="line-right col-6">{{pokemon.name}}</div>
-				</div>
-				<div class="row line name">
-					<div class="line-left col-6">Point de vie</div>
-					<div class="line-right col-6"> {{pokemon.hp}} </div>
-				</div>
-				<div class="row line line-color name">
-					<div class="line-left col-6">Dégât</div>
-					<div class="line-right col-6"> {{pokemon.cp}} </div>
-				</div>
-				<div class="row line name">
-					<div class="line-left col-6">Types</div>
-					<div class="line-right col-6">
-						<span *ngFor="let type of pokemon?.types" class="{{type | pokemonTypeColor}}">
-							{{type}}
-						</span>
-					</div>
-				</div>
-				<div class="row line line-color name">
-					<div class="line-left col-6">Date de création</div>
-					<div class="line-right col-6"><i> {{pokemon.created | date:'dd/mm/yy'}} </i></div>
-				</div>
-			</div>
-			<div class="bottom-btns">
-				<p-button label=" Retour" title="retour à la liste des pokemons" icon="pi pi-angle-left" class="return-btn"
-					styleClass="p-button-text" (click)="gotToPokemonsList( pokemon.name )"></p-button>
+  <h2
+    class="page-title text-center text-break"
+    style="font-weight: bold; letter-spacing: 1rem; font-size: xx-large"
+  >
+    {{ pokemon.name }}
+  </h2>
+  <div *ngIf="pokemon.id" class="card mb-5">
+    <div class="row">
+      <div class="col-md-4 col-sm-12 align-items-center image-box">
+        <img src="{{ pokemon.picture }}" alt="" />
+      </div>
+      <div class="container-fluid col-md-8 col-sm-12 details-infos">
+        <div class="row line line-color name">
+          <div class="line-left col-6">Nom</div>
+          <div class="line-right col-6">{{ pokemon.name }}</div>
+        </div>
+        <div class="row line name">
+          <div class="line-left col-6">Point de vie</div>
+          <div class="line-right col-6">{{ pokemon.hp }}</div>
+        </div>
+        <div class="row line line-color name">
+          <div class="line-left col-6">Dégât</div>
+          <div class="line-right col-6">{{ pokemon.cp }}</div>
+        </div>
+        <div class="row line name">
+          <div class="line-left col-6">Types</div>
+          <div class="line-right col-6">
+            <span
+              *ngFor="let type of pokemon?.types"
+              class="{{ type | pokemonTypeColor }}"
+            >
+              {{ type }}
+            </span>
+          </div>
+        </div>
+        <div class="row line line-color name">
+          <div class="line-left col-6">Date de création</div>
+          <div class="line-right col-6">
+            <i> {{ pokemon.created | date: "dd/mm/yy" }} </i>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-btns">
+        <p-button
+          label=" Retour"
+          title="retour à la liste des pokemons"
+          icon="pi pi-angle-left"
+          class="return-btn"
+          styleClass="p-button-text"
+          (click)="gotToPokemonsList(pokemon.name)"
+        ></p-button>
 
-				<p-button label="Modilier" title="modifier les informations du pokemon" icon="pi pi-pencil" class="return-btn"
-					styleClass="p-button-text p-button-warning" (click)="editPokemon( pokemon.id )"></p-button>
+        <p-button
+          label="Modilier"
+          title="modifier les informations du pokemon"
+          icon="pi pi-pencil"
+          class="return-btn"
+          styleClass="p-button-text p-button-warning"
+          (click)="editPokemon(pokemon.id)"
+        ></p-button>
 
-				<p-button label="Supprimer" title="supprimer le pokemon" icon="pi pi-trash" class="return-btn"
-					styleClass="p-button-text p-button-danger" (click)="deletePokemon( pokemon.id )"></p-button>
-			</div>
-		</div>
-	</div>
+        <p-button
+          label="Supprimer"
+          title="supprimer le pokemon"
+          icon="pi pi-trash"
+          class="return-btn"
+          styleClass="p-button-text p-button-danger"
+          (click)="deletePokemon(pokemon.id)"
+        ></p-button>
+      </div>
+    </div>
+  </div>
 </div>
-<div *ngIf="loadingPokemon" class="d-flex" style="height: 80vh; align-items: center; justify-content: center;">
-	<p-progressSpinner styleClass="w-4rem h-4rem" strokeWidth="8" fill="var(--surface-ground)"
-		animationDuration=".5s"></p-progressSpinner>
+<div
+  *ngIf="loadingPokemon"
+  class="d-flex"
+  style="height: 80vh; align-items: center; justify-content: center"
+>
+  <p-progressSpinner
+    styleClass="w-4rem h-4rem"
+    strokeWidth="8"
+    fill="var(--surface-ground)"
+    animationDuration=".5s"
+  ></p-progressSpinner>
 </div>
 <div *ngIf="!loadingPokemon && !pokemon?.id">
-	<app-page-not-found [message]="message"></app-page-not-found>
+  <app-page-not-found [message]="message"></app-page-not-found>
 </div>

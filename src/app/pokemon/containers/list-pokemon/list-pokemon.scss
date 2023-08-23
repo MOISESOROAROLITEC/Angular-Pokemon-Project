@@ -1,77 +1,76 @@
-.pokemon-list{
-
-	.p-button{
-		position: fixed;
-		bottom: 2rem;
-		right: 2rem;
-		height: 4rem !important;
+.pokemon-list {
+  .p-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    height: 4rem !important;
     width: 4rem !important;
-		background-color: #f5f5ff;
+    background-color: #f5f5ff;
 
-		&:hover{
-			background-color: #ced6ffe6 !important;
-		}
-	}
+    &:hover {
+      background-color: #ced6ffe6 !important;
+    }
+  }
 
-	.pokemon-card {
-		border-radius: 5px;
-		cursor: pointer;
-	
-			@media only screen and (max-width:575px) {
-				width: 80%;
-				margin-left: auto;
-				margin-right: auto;
-			}
+  .pokemon-card {
+    border-radius: 5px;
+    cursor: pointer;
 
-		&:hover {
-			.pok-image {
-				animation: anim-pok-image 0.8s linear infinite alternate both;
-			}
-		}
-	
-		.pok-list-section {
-			scroll-margin-top: 6.5rem;
-		}
-	
-		.p-card {
-			display: flex;
-			margin: 1rem 0;
-			align-items: center;
-			min-height: 200px;
-	
-			&.p-component:hover {
-				box-shadow: 0px 0px 30px -21px #0000009d;
-				transform: scale(1.04, 1.04);
-				border-radius: 10px;
-			}
-	
-			@media only screen and (max-width: 350px) {
-				flex-direction: column;
-			}
-	
-			.p-card-body {
-				width: 70% !important;
-				padding: 10px;
-				font-size: 0.8rem;
-	
-				@media only screen and (max-width: 350px) {
-					width: 100% !important;
-				}
-	
-				.pok-name {
-					font-weight: bold;
-					margin-bottom: 4px;
-					font-size: 1.1rem;
-				}
-			}
-	
-			.pok-image {
-				position: relative;
-				top: -50px;
-				left: -30px;
-				max-width: 200px;
-				max-height: 200pxpx;
-			}
-		}
-	}
+    @media only screen and (max-width: 575px) {
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &:hover {
+      .pok-image {
+        animation: anim-pok-image 0.8s linear infinite alternate both;
+      }
+    }
+
+    .pok-list-section {
+      scroll-margin-top: 6.5rem;
+    }
+
+    .p-card {
+      display: flex;
+      margin: 1rem 0;
+      align-items: center;
+      min-height: 200px;
+
+      &.p-component:hover {
+        box-shadow: 0px 0px 30px -21px #0000009d;
+        transform: scale(1.04, 1.04);
+        border-radius: 10px;
+      }
+
+      @media only screen and (max-width: 350px) {
+        flex-direction: column;
+      }
+
+      .p-card-body {
+        width: 70% !important;
+        padding: 10px;
+        font-size: 0.8rem;
+
+        @media only screen and (max-width: 350px) {
+          width: 100% !important;
+        }
+
+        .pok-name {
+          font-weight: bold;
+          margin-bottom: 4px;
+          font-size: 1.1rem;
+        }
+      }
+
+      .pok-image {
+        position: relative;
+        top: -50px;
+        left: -30px;
+        max-width: 200px;
+        max-height: 200pxpx;
+      }
+    }
+  }
 }

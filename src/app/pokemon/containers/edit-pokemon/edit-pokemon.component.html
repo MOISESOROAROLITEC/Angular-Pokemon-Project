@@ -1,15 +1,24 @@
 <div class="container">
+  <div *ngIf="pokemon" class="row justify-content-center edit-pokemon">
+    <h2 class="col-12 page-title text-center">
+      Editer <span class="pok-name">{{ pokemon.name }}</span>
+    </h2>
+    <div class="col-12 pokemon-image">
+      <img
+        [src]="pokemon.picture"
+        alt="pokemon picture"
+        title="image du pokemon"
+      />
+    </div>
+    <app-form-pokemon
+      [pokemon]="pokemon"
+      (onUpdatePokemon)="updatePokemon($event)"
+    ></app-form-pokemon>
+  </div>
 
-	<div *ngIf="pokemon" class="row justify-content-center edit-pokemon">
+  <app-spiner [loadingPokemon]="loading"></app-spiner>
 
-		<h2 class="col-12 page-title text-center"> Editer <span class="pok-name">{{pokemon.name}}</span> </h2>
-		<div class="col-12 pokemon-image">
-			<img [src]="pokemon.picture" alt="pokemon picture" title="image du pokemon">
-		</div>
-		<app-form-pokemon [pokemon]="pokemon" (onUpdatePokemon)="updatePokemon($event)"></app-form-pokemon>
-	</div>
-
-	<app-spiner [loadingPokemon]="loading"></app-spiner>
-
-	<h3 *ngIf="!loading && !pokemon" class="text-center">Aucun pokémon à éditer...</h3>
+  <h3 *ngIf="!loading && !pokemon" class="text-center">
+    Aucun pokémon à éditer...
+  </h3>
 </div>

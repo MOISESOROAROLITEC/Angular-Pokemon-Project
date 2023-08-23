@@ -1,1 +1,1 @@
-export * from './pokemon-type-color.pipe'
+export * from "./pokemon-type-color.pipe";

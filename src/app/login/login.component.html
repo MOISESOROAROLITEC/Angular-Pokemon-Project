@@ -1,29 +1,72 @@
 <div class="container">
-  <div class="row ">
-    <form *ngIf="!auth.isLoggedIn()" (ngSubmit)="login()" #form="ngForm" class="col-12 col-xxl-8 col-xl-8 col-md-8">
+  <div class="row">
+    <form
+      *ngIf="!auth.isLoggedIn()"
+      (ngSubmit)="login()"
+      #form="ngForm"
+      class="col-12 col-xxl-8 col-xl-8 col-md-8"
+    >
       <h2 class="page-title">Authantification</h2>
       <div *ngIf="progress" class="text-center">
-        <p-progressSpinner styleClass="w-4rem h-4rem" strokeWidth="8" fill="var(--surface-ground)"
-          animationDuration=".5s"></p-progressSpinner>
+        <p-progressSpinner
+          styleClass="w-4rem h-4rem"
+          strokeWidth="8"
+          fill="var(--surface-ground)"
+          animationDuration=".5s"
+        ></p-progressSpinner>
       </div>
 
       <div class="mb-2">
-        <label for="username" class="form-label">Nom d'utilisateur ( <span style="font-weight: bold;"> soro</span>
-          )</label>
-        <input type="text" class="form-control form-control-lg" id="username" required pattern="^[a-zA-Z0-9àéèç]{3,25}$"
-          [(ngModel)]="username" name="name" #name="ngModel">
-        <div [hidden]="name.valid || name.pristine" class="mt-1" [ngStyle]="{color: 'var(--red-300)'}">
+        <label for="username" class="form-label"
+          >Nom d'utilisateur (
+          <span style="font-weight: bold"> soro</span> )</label
+        >
+        <input
+          type="text"
+          class="form-control form-control-lg"
+          id="username"
+          required
+          pattern="^[a-zA-Z0-9àéèç]{3,25}$"
+          [(ngModel)]="username"
+          name="name"
+          #name="ngModel"
+        />
+        <div
+          [hidden]="name.valid || name.pristine"
+          class="mt-1"
+          [ngStyle]="{ color: 'var(--red-300)' }"
+        >
           Le nom d'utilisateur doit être 3 à 25 caractère et sans espace
         </div>
       </div>
       <div class="mb-2">
-        <label for="password" class="form-label">Mot de passe ( <span style="font-weight: bold;"> soro</span> )</label>
-        <input type="password" class="form-control form-control-lg" id="password" required [(ngModel)]="password"
-          name="pass" #pass="ngModel">
+        <label for="password" class="form-label"
+          >Mot de passe ( <span style="font-weight: bold"> soro</span> )</label
+        >
+        <input
+          type="password"
+          class="form-control form-control-lg"
+          id="password"
+          required
+          [(ngModel)]="password"
+          name="pass"
+          #pass="ngModel"
+        />
       </div>
       <div class="submitBtn d-flex justify-content-end mt-3">
-        <div style="border: none; background-color: transparent; margin: 0; padding: 0;">
-          <button type="submit" class="btn btn-primary btn-lg" [disabled]="!form.form.valid">
+        <div
+          style="
+            border: none;
+            background-color: transparent;
+            margin: 0;
+            padding: 0;
+          "
+        >
+          <button
+            type="submit"
+            class="btn btn-primary btn-lg"
+            [disabled]="!form.form.valid"
+          >
             Se connecter
           </button>
         </div>
@@ -32,9 +75,17 @@
     <div *ngIf="auth.isLoggedIn()" class="col-12">
       <h3>Vous être déjà connecté</h3>
       <div class="submitBtn d-flex justify-content-end mt-5">
-        <p-button (click)="logout()" styleClass="p-button-danger mx-5">Se déconnecter</p-button>
-        <p-button label="Liste des pokemons" icon="pi pi-angle-right" iconPos="right" class="return-btn"
-          styleClass="p-button-raised p-button-primary" (click)="returnButton()"></p-button>
+        <p-button (click)="logout()" styleClass="p-button-danger mx-5"
+          >Se déconnecter</p-button
+        >
+        <p-button
+          label="Liste des pokemons"
+          icon="pi pi-angle-right"
+          iconPos="right"
+          class="return-btn"
+          styleClass="p-button-raised p-button-primary"
+          (click)="returnButton()"
+        ></p-button>
       </div>
     </div>
   </div>
